@@ -1,0 +1,89 @@
+{% set  NETWORK_NAME = "us-eu-asia" %}
+
+resources:
+- name: {{ NETWORK_NAME }}
+  type: network-template.jinja
+
+- name: us-central1-s1
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.10.0.0/16    
+    region: us-central1
+- name: usc1
+  type: vm-template.jinja
+  properties:
+    machineType: n1-standard-1
+    zone: us-central1-a
+    network: {{ NETWORK_NAME }}
+    subnetwork: us-central1-s1
+
+- name: us-central1-s2
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.11.0.0/16    
+    region: us-central1
+- name: usc2
+  type: vm-template.jinja
+  properties:
+    machineType: n1-standard-1
+    zone: us-central1-b
+    network: {{ NETWORK_NAME }}
+    subnetwork: us-central1-s2
+
+- name: us-east1
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.20.0.0/16    
+    region: us-east1
+- name: use
+  type: vm-template.jinja
+  properties:
+    machineType: n1-standard-1
+    zone: us-east1-b
+    network: {{ NETWORK_NAME }}
+    subnetwork: us-east1
+
+- name: us-west1
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.30.0.0/16    
+    region: us-west1
+- name: usw
+  type: vm-template.jinja
+  properties:
+    machineType: n1-standard-1
+    zone: us-west1-a
+    network: {{ NETWORK_NAME }}
+    subnetwork: us-west1
+
+- name: europe-west1
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.0.0/16    
+    region: europe-west1
+- name: eu
+  type: vm-template.jinja
+  properties:
+    machineType: n1-standard-1
+    zone: europe-west1-b
+    network: {{ NETWORK_NAME }}
+    subnetwork: europe-west1
+
+- name: asia-east1
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.200.0.0/16    
+    region: asia-east1
+- name: asia
+  type: vm-template.jinja
+  properties:
+    machineType: n1-standard-1
+    zone: asia-east1-a
+    network: {{ NETWORK_NAME }}
+    subnetwork: asia-east1

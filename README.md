@@ -1,2 +1,1 @@
-# gcp-cdm-templates
-Google Cloud Platform - Cloud Deployment Manager Templates
+# Google Cloud Platform - Cloud Deployment Manager Templates 

@@ -1,0 +1,15 @@
+imports:
+- path: vm-template.jinja
+- path: network-template.jinja
+- path: subnetwork-template.jinja
+- path: compute-engine-template.jinja
+- path: firewall-template.jinja
+
+resources:
+- name: compute-engine-setup
+  type: compute-engine-template.jinja
+
+- name: us-eu-asia
+  type: firewall-template.jinja
+  properties:
+    network: us-eu-asia
